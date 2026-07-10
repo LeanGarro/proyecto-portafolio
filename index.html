@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ojo con este favicon, me falta hacer uno mejor -->
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Leandro Garro - Programador Backend especializado en sistemas de transporte y logística. Estudiante de Sistemas | Python & Django" />
+    <meta property="og:title" content="Leandro Garro — Backend Developer" />
+    <meta property="og:description" content="Transformando la lógica en soluciones logísticas. Estudiante de Sistemas | Python & Django" />
+    <meta property="og:type" content="website" />
+    <title>Leandro Garro — Backend Developer</title>
+
+    <!-- Fuentes: me encanta Inter, es la que usan en muchos proyectos copados -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap: lo uso porque me ahorra tiempo, pero algún día lo haré sin él -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Mis estilos, estos los fui armando de a poco -->
+    <link rel="stylesheet" href="src/styles/main.css" />
+  </head>
+  <body>
+    <!-- ============================================================ -->
+    <!-- HEADER: lo hice fijo para que siempre se vea el menú -->
+    <!-- ============================================================ -->
+    <header id="site-header" class="site-header">
+      <nav class="container d-flex align-items-center justify-content-between py-3">
+        <!-- Puse mi nombre así nomás, sin mucho verso -->
+        <a href="#main" class="brand" data-scroll>Leandro<span class="text-amber"> Garro</span></a>
+
+        <!-- Menú de navegación: en escritorio se ve así -->
+        <ul class="nav-links d-none d-md-flex align-items-center gap-4 mb-0">
+          <li><a href="#sobre-mi" class="nav-link-custom" data-scroll>Sobre Mí</a></li>
+          <li><a href="#habilidades" class="nav-link-custom" data-scroll>Habilidades</a></li>
+          <li><a href="#proyectos" class="nav-link-custom" data-scroll>Proyectos</a></li>
+          <li><a href="#adn-logistico" class="nav-link-custom" data-scroll>Mi ADN Logístico</a></li>
+          <li><a href="#contacto" class="nav-link-custom" data-scroll>Contacto</a></li>
+        </ul>
+
+        <!-- Botón hamburguesa: para mobile, obvio -->
+        <button class="btn-toggle d-md-none" id="menu-toggle" aria-label="Menú" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </nav>
+
+      <!-- Menú mobile: se abre con JS -->
+      <div class="mobile-menu" id="mobile-menu">
+        <ul class="container list-unstyled mb-0 pt-3 pb-2">
+          <li><a href="#sobre-mi" class="mobile-link" data-scroll>Sobre Mí</a></li>
+          <li><a href="#habilidades" class="mobile-link" data-scroll>Habilidades</a></li>
+          <li><a href="#proyectos" class="mobile-link" data-scroll>Proyectos</a></li>
+          <li><a href="#adn-logistico" class="mobile-link" data-scroll>Mi ADN Logístico</a></li>
+          <li><a href="#contacto" class="mobile-link" data-scroll>Contacto</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- MAIN: la parte más importante, la que atrapa -->
+    <!-- ============================================================ -->
+    <section id="main" class="main">
+      <!-- Este canvas lo usa el efecto Matrix, me llevó un rato hacerlo funcionar -->
+      <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+      <div class="main-overlay"></div>
+
+      <!-- Estos puntitos ámbar los puse para darle vida, quedan flotando -->
+      <div class="main-dots" aria-hidden="true">
+        <span class="dot pulse-ring" style="left:12%;top:22%"></span>
+        <span class="dot dot-sm pulse-ring" style="right:15%;top:28%;animation-delay:.8s"></span>
+        <span class="dot dot-sm pulse-ring" style="left:20%;bottom:30%;animation-delay:1.2s"></span>
+        <span class="dot pulse-ring" style="right:22%;bottom:25%;animation-delay:.4s"></span>
+        <span class="dot dot-sm pulse-ring" style="left:50%;top:15%;animation-delay:1.6s"></span>
+      </div>
+
+      <div class="container main-content text-center">
+        <!-- Efecto de máquina de escribir, me encanta cómo queda -->
+        <div class="typewriter mb-4">
+          <span class="text-amber-soft">$&nbsp;</span>
+          <span id="typed"></span>
+          <span class="cursor-blink"></span>
+        </div>
+
+        <!-- El título: quería algo que pegue fuerte -->
+        <h1 class="main-title">
+          Transformando la lógica<br />
+          en <span class="text-amber">soluciones</span><br />
+          logísticas
+        </h1>
+
+        <!-- Un subtítulo simple, sin vueltas -->
+        <p class="main-subtitle mx-auto">
+          Estudiante de Sistemas · Python &amp; Django · Buscando mi primer desafío profesional
+        </p>
+
+        <!-- Botones: uno lleva a proyectos, otro a contacto -->
+        <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3 mt-4">
+          <button class="btn btn-amber w-100 w-sm-auto" data-scroll-to="#proyectos">
+            <i class="bi bi-folder2-open me-1"></i> Ver Proyectos
+          </button>
+          <button class="btn btn-outline-custom w-100 w-sm-auto" data-scroll-to="#contacto">
+            <i class="bi bi-envelope me-1"></i> Contactar
+          </button>
+        </div>
+
+        <!-- Redes: las puse con SVG para que se vean bien -->
+        <div class="d-flex align-items-center justify-content-center gap-4 mt-4">
+          <a href="https://github.com/LeanGarro" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.7 1.8 2.7 1.3.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/leandro-matías-garro-723855294/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+          </a>
+          <span class="main-loc">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            Pilar, Buenos Aires
+          </span>
+        </div>
+      </div>
+
+      <!-- Flechita para bajar, simple pero efectiva -->
+      <button class="scroll-down" data-scroll-to="#sobre-mi" aria-label="Bajar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="float-anim"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SOBRE MÍ: acá puse mi historia, la que me sale del corazón -->
+    <!-- ============================================================ -->
+    <section id="sobre-mi" class="section-pad">
+      <div class="container">
+        <div class="reveal mb-5">
+          <h2 class="section-title">Sobre <span class="amber-underline text-amber">Mí</span></h2>
+        </div>
+
+        <div class="row g-4 g-lg-5">
+          <!-- Esta es mi bio, la escribí yo mismo -->
+          <div class="col-lg-6 reveal">
+            <p class="bio-text">
+              Soy <strong class="text-white">Leandro Matías Garro</strong>, tengo 19 años y vivo en
+              <strong class="text-white">Pilar, Buenos Aires</strong>. Actualmente curso la
+              <span class="text-amber">Licenciatura en Sistemas</span> y la
+              <span class="text-amber">Tecnicatura Universitaria en Informática</span> en la UNGS.
+            </p>
+            <p class="bio-text">
+              Mi objetivo es convertirme en <strong class="text-amber">Programador Backend</strong>,
+              especializándome en sistemas de transporte y logística. Vengo de una familia donde la logística es el
+              idioma que se habla en casa, y quiero ser yo quien construya el software que la conecte y optimice.
+            </p>
+            <p class="bio-text">
+              Aprendo rápido, soy autodidacta y tengo disponibilidad horaria flexible. Poseo el certificado de
+              <strong class="text-white">Inglés B2 de Cambridge</strong>, lo que me permite leer
+              documentación y comunicarme en entornos técnicos con fluidez.
+            </p>
+
+            <!-- Estos datos los fui recopilando de a poco, son los más importantes -->
+            <div class="row g-2 mt-3">
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <span class="info-icon">📍</span>
+                  <div><p class="info-label">Ubicación</p><p class="info-value">Pilar, Buenos Aires, Argentina</p></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <span class="info-icon">📅</span>
+                  <div><p class="info-label">Disponibilidad</p><p class="info-value">Remoto · Part-time · Full-time</p></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <span class="info-icon">🌐</span>
+                  <div><p class="info-label">Idioma</p><p class="info-value">Inglés B2 (Cambridge)</p></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-item">
+                  <span class="info-icon">⚡</span>
+                  <div><p class="info-label">Enfoque</p><p class="info-value">Backend · Logística</p></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redes: las puse acá también por si alguien quiere chusmear -->
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a href="https://github.com/LeanGarro" target="_blank" rel="noopener noreferrer" class="btn-social-outline">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.7 1.8 2.7 1.3.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/leandro-matías-garro-723855294/" target="_blank" rel="noopener noreferrer" class="btn-social-outline">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Educación y certificaciones, lo que fui acumulando -->
+          <div class="col-lg-6 reveal reveal-delay-2">
+            <div class="card-box mb-4">
+              <h3 class="card-box-title">
+                <span class="me-1">🎓</span> Educación
+              </h3>
+              <ul class="education-list">
+                <li>
+                  <p class="mb-0 fw-medium text-white">Licenciatura en Sistemas</p>
+                  <p class="edu-inst">Universidad Nacional de General Sarmiento (UNGS)</p>
+                </li>
+                <li>
+                  <p class="mb-0 fw-medium text-white">Tecnicatura Universitaria en Informática</p>
+                  <p class="edu-inst">Universidad Nacional de General Sarmiento (UNGS)</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Certificaciones: la de Cambridge me costó, las de CoderHouse las hice para practicar -->
+            <h3 class="card-box-title mb-3"><span class="me-1">🏅</span> Certificaciones</h3>
+            <div class="d-flex flex-column gap-3">
+              <div class="cert-item">
+                <span class="cert-icon">✓</span>
+                <div>
+                  <p class="mb-0 fw-medium text-white">Inglés B2</p>
+                  <p class="cert-sub">Cambridge English · Certificado oficial</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <span class="cert-icon">✓</span>
+                <div>
+                  <p class="mb-0 fw-medium text-white">Python</p>
+                  <p class="cert-sub">CoderHouse · Curso completado</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <span class="cert-icon">✓</span>
+                <div>
+                  <p class="mb-0 fw-medium text-white">Frontend Developer</p>
+                  <p class="cert-sub">CoderHouse · Curso completado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MANIFIESTO: cuatro principios que resumen lo que soy -->
+    <!-- ============================================================ -->
+    <section class="section-band section-pad-y">
+      <div class="container">
+        <div class="reveal text-center mb-5">
+          <h2 class="section-title">Mi <span class="amber-underline text-amber">Manifiesto</span></h2>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-sm-6 reveal reveal-delay-1">
+            <div class="manifesto-card">
+              <span class="manifesto-num">01</span>
+              <h3 class="manifesto-title">Aprendizaje rápido</h3>
+              <p class="manifesto-text">Mi mayor virtud no es lo que ya sé, sino la velocidad con la que aprendo lo que me falta. Cada concepto nuevo es un reto, no un obstáculo.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 reveal reveal-delay-2">
+            <div class="manifesto-card">
+              <span class="manifesto-num">02</span>
+              <h3 class="manifesto-title">Flexibilidad total</h3>
+              <p class="manifesto-text">Remoto, part-time o full-time. Me adapto a las necesidades del equipo y del proyecto, sin que el horario sea una barrera.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 reveal reveal-delay-1">
+            <div class="manifesto-card">
+              <span class="manifesto-num">03</span>
+              <h3 class="manifesto-title">Inglés B2 certificado</h3>
+              <p class="manifesto-text">Acredito el nivel B2 de Cambridge. Leo documentación, sigo tutoriales y me comunico con fluidez en entornos técnicos en inglés.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 reveal reveal-delay-2">
+            <div class="manifesto-card">
+              <span class="manifesto-num">04</span>
+              <h3 class="manifesto-title">ADN logístico</h3>
+              <p class="manifesto-text">Crecí en una familia donde la logística es el idioma de casa. Conozco el negocio desde adentro y quiero construir el software que lo optimice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HABILIDADES: acá puse lo que sé, con honestidad -->
+    <!-- ============================================================ -->
+    <section id="habilidades" class="section-pad">
+      <div class="container">
+        <div class="reveal text-center mb-5">
+          <h2 class="section-title">Habilidades <span class="amber-underline text-amber">Técnicas</span></h2>
+          <p class="section-sub">El stack con el que construyo</p>
+        </div>
+
+        <!-- Backend: lo que más me gusta -->
+        <div class="reveal mb-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="cat-bar"></span>
+            <span class="cat-icon">⌨</span>
+            <h3 class="cat-title mb-0">Backend</h3>
+            <span class="cat-sub">— Donde me especializo</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="55"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">Python</span><span class="skill-pct">55%</span></div><p class="skill-note">Avanzado</p><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="45"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">Django</span><span class="skill-pct">45%</span></div><p class="skill-note">Framework principal</p><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="30"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">SQL</span><span class="skill-pct">30%</span></div><p class="skill-note">Bases de datos relacionales</p><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend: lo suficiente para hacer cosas lindas -->
+        <div class="reveal reveal-delay-1 mb-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="cat-bar"></span>
+            <span class="cat-icon">🖼</span>
+            <h3 class="cat-title mb-0">Frontend</h3>
+            <span class="cat-sub">— Interfaces que comunican</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="85"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">HTML5</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="60"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">CSS3</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="70"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">Bootstrap</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="35"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">JavaScript</span><span class="skill-pct">35%</span></div><p class="skill-note">En aprendizaje</p><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Herramientas: las que uso todos los días -->
+        <div class="reveal reveal-delay-2 mb-5">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="cat-bar"></span>
+            <span class="cat-icon">🔧</span>
+            <h3 class="cat-title mb-0">Herramientas</h3>
+            <span class="cat-sub">— Mi caja de trabajo</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="60"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">Git / GitHub</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="skill-card" data-level="75"><div class="d-flex justify-content-between align-items-baseline"><span class="fw-semibold text-white">Ofimática</span><span class="skill-pct">75%</span></div><p class="skill-note">Excel · PowerPoint · Word (avanzado)</p><div class="skill-track"><div class="skill-fill"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills: lo que no se ve pero importa -->
+        <div class="reveal reveal-delay-3">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="cat-bar"></span>
+            <h3 class="cat-title mb-0">Soft Skills</h3>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-3">
+              <div class="soft-card"><span class="soft-icon">🌐</span><span class="soft-name">Inglés B2</span></div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="soft-card"><span class="soft-icon">📚</span><span class="soft-name">Autodidacta</span></div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="soft-card"><span class="soft-icon">🏋</span><span class="soft-name">Disciplina (deportista)</span></div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="soft-card"><span class="soft-icon">👥</span><span class="soft-name">Trabajo en equipo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PROYECTOS: los que fui haciendo mientras aprendía -->
+    <!-- ============================================================ -->
+    <section id="proyectos" class="section-band section-pad-y">
+      <div class="container">
+        <div class="reveal text-center mb-5">
+          <h2 class="section-title"><span class="amber-underline text-amber">Proyectos</span></h2>
+          <p class="section-sub">Lo que he construido aprendiendo</p>
+        </div>
+
+        <!-- Los proyectos los cargo con JS desde data.js, así los puedo actualizar fácil -->
+        <div class="row g-3" id="projects-grid">
+          <!-- Los proyectos se inyectan desde JS (data.js) -->
+        </div>
+
+        <div class="reveal text-center mt-4">
+          <a href="https://github.com/LeanGarro" target="_blank" rel="noopener noreferrer" class="btn-social-outline d-inline-flex">
+            Ver más en GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ms-1"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ADN LOGÍSTICO: mi historia familiar, la que me hace único -->
+    <!-- ============================================================ -->
+    <section id="adn-logistico" class="section-pad">
+      <div class="container">
+        <div class="reveal text-center mb-2">
+          <h2 class="section-title">Mi ADN <span class="amber-underline text-amber">Logístico</span></h2>
+        </div>
+        <p class="reveal reveal-delay-1 text-center section-sub mb-5">No es solo código, es herencia.</p>
+
+        <div class="row g-4 g-lg-5">
+          <!-- Columna izquierda: la historia, la que me sale del corazón -->
+          <div class="col-lg-6 reveal">
+            <p class="bio-text">
+              Vengo de una familia donde la
+              <strong class="text-white">logística es el idioma que se habla en casa</strong>.
+              Mi padre y mis tres tíos trabajan en empresas competidoras, y cada uno ha hecho carrera en una
+              rama distinta del sector.
+            </p>
+
+            <!-- Los sectores los cargo desde JS, así los puedo cambiar si hace falta -->
+            <ul class="list-unstyled d-flex flex-column gap-2 mt-3 mb-3" id="sectors-list">
+              <!-- Inyectados desde JS -->
+            </ul>
+
+            <p class="quote-text">
+              Cuatro miradas diferentes de un mismo mundo. Mi meta es ser quien construya el
+              <strong class="text-amber">software que conecte y optimice estos sistemas</strong>.
+              No solo quiero programar, quiero entender el negocio para crear soluciones que realmente
+              importen.
+            </p>
+          </div>
+
+          <!-- Columna derecha: un mapa visual de mi red familiar -->
+          <div class="col-lg-6 reveal reveal-delay-2">
+            <div class="card-box p-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="net-label">Red logística familiar</span>
+                <span class="net-meta">4 áreas · 1 objetivo</span>
+              </div>
+
+              <!-- Este SVG lo construyo desde JS con nodos y líneas -->
+              <svg id="logistics-svg" viewBox="0 0 96 94" class="w-100 logistics-svg" aria-label="Mapa de nodos logísticos">
+                <!-- Líneas y nodos se inyectan desde JS -->
+              </svg>
+
+              <div class="net-tooltip" id="net-tooltip"></div>
+
+              <!-- Leyenda para entender el mapa -->
+              <div class="d-flex flex-wrap gap-3 net-legend border-top pt-2 mt-2">
+                <span class="legend-item"><span class="legend-dot legend-filled"></span> Área familiar</span>
+                <span class="legend-item"><span class="legend-dot legend-ring"></span> Tu objetivo</span>
+                <span class="legend-item"><span class="legend-line"></span> Conexión</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACTO: por si quieren escribirme -->
+    <!-- ============================================================ -->
+    <section id="contacto" class="section-pad">
+      <div class="container">
+        <div class="reveal text-center mb-5">
+          <h2 class="section-title"><span class="amber-underline text-amber">Contacto</span></h2>
+          <p class="section-sub">Construyamos algo juntos</p>
+        </div>
+
+        <div class="row g-4 g-lg-5">
+          <!-- Info de contacto -->
+          <div class="col-lg-6 reveal d-flex flex-column justify-content-center gap-4">
+            <div>
+              <h3 class="h5 fw-bold text-white mb-2">¿Hablamos?</h3>
+              <p class="bio-text">
+                Busco mi primera experiencia laboral como
+                <span class="text-amber">Programador Backend</span>. Tengo disponibilidad horaria
+                flexible y estoy abierto a modalidad remota, part-time o full-time.
+              </p>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <a href="mailto:leandro.garro.dev@gmail.com" class="info-row">
+                <span class="info-row-icon">✉</span>
+                <div><p class="info-label mb-0">Email</p><p class="info-value mb-0">leandro.garro.dev@gmail.com</p></div>
+              </a>
+              <div class="info-row">
+                <span class="info-row-icon">📍</span>
+                <div><p class="info-label mb-0">Ubicación</p><p class="info-value mb-0">Pilar, Buenos Aires, Argentina</p></div>
+              </div>
+              <div class="info-row">
+                <span class="info-row-icon">🕐</span>
+                <div><p class="info-label mb-0">Disponibilidad</p><p class="info-value mb-0">Remoto · Part-time · Full-time</p></div>
+              </div>
+              <div class="info-row">
+                <span class="info-row-icon">🌐</span>
+                <div><p class="info-label mb-0">Idioma</p><p class="info-value mb-0">Inglés B2 (Cambridge)</p></div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="h6 fw-semibold mb-2">Redes</h4>
+              <div class="d-flex gap-2">
+                <a href="https://github.com/LeanGarro" target="_blank" rel="noopener noreferrer" class="icon-box" aria-label="GitHub">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.7 1.8 2.7 1.3.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/leandro-matías-garro-723855294/" target="_blank" rel="noopener noreferrer" class="icon-box" aria-label="LinkedIn">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario de contacto, todavía no lo conecté pero ahí va -->
+          <div class="col-lg-6 reveal reveal-delay-2">
+            <form id="contact-form" class="card-box p-4 p-md-5" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label-custom">Nombre</label>
+                <input type="text" id="name" name="name" class="form-control-custom" placeholder="Tu nombre" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label-custom">Email</label>
+                <input type="email" id="email" name="email" class="form-control-custom" placeholder="tu@email.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label-custom">Mensaje</label>
+                <textarea id="message" name="message" rows="5" class="form-control-custom form-textarea" placeholder="Cuéntame sobre el proyecto o posición..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-amber w-100" id="submit-btn">
+                <span id="submit-text"><span>➤</span> Enviar Mensaje</span>
+              </button>
+
+              <!-- Estos mensajes los muestro con JS después del envío -->
+              <div id="form-success" class="form-feedback form-success d-none">
+                ✓ ¡Mensaje enviado! Me pondré en contacto pronto.
+              </div>
+              <div id="form-error" class="form-feedback form-error d-none">
+                ⚠ <span id="form-error-msg">No se pudo enviar el mensaje. Intenta nuevamente.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER: el cierre de la página -->
+    <!-- ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h3 class="h5 fw-semibold text-white">Leandro<span class="text-amber"> Garro</span></h3>
+            <p class="footer-bio">Backend Developer en formación. Transformando la lógica en soluciones logísticas.</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="https://github.com/LeanGarro" target="_blank" rel="noopener noreferrer" class="icon-box icon-box-sm" aria-label="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.7 1.8 2.7 1.3.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/leandro-matías-garro-723855294/" target="_blank" rel="noopener noreferrer" class="icon-box icon-box-sm" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+              </a>
+              <a href="mailto:leandro.garro.dev@gmail.com" class="icon-box icon-box-sm" aria-label="Email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <h4 class="footer-heading">Navegación</h4>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#sobre-mi" data-scroll>Sobre Mí</a></li>
+              <li><a href="#habilidades" data-scroll>Habilidades</a></li>
+              <li><a href="#proyectos" data-scroll>Proyectos</a></li>
+              <li><a href="#adn-logistico" data-scroll>Mi ADN Logístico</a></li>
+              <li><a href="#contacto" data-scroll>Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h4 class="footer-heading">Contacto</h4>
+            <ul class="list-unstyled footer-links">
+              <li>leandro.garro.dev@gmail.com</li>
+              <li>Pilar, Buenos Aires, Argentina</li>
+              <li>Remoto · Part-time · Full-time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy mb-0">© <span id="year"></span> Leandro Garro. Construido con HTML, CSS, Bootstrap &amp; JavaScript.</p>
+          <button class="btn-top" id="back-top">Volver arriba <span class="icon-box icon-box-sm">↑</span></button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS: todo lo que hace que la página se mueva -->
+    <!-- ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
+     
+    <!-- Mis scripts, los separé en dos archivos para no mezclar -->
+    <script type="module" src="src/js/data.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+
+    <!--
+      NOTA PARA MÍ MISMO:
+      - Tengo que conectar el formulario de contacto
+      - Mejorar el favicon
+      - Agregar más proyectos cuando termine la carrera
+    -->
+  </body>
+</html>
