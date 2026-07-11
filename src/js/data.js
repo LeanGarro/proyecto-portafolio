@@ -38,7 +38,8 @@ export const profile = {
 //  La de Cambridge me costó, las de CoderHouse las hice para practicar
 // ---------------------------------------------------------
 export const certifications = [
-  { name: 'Inglés B1-B2', institution: 'Cambridge English', year: 'Certificado oficial' },
+  // ⬅️ CAMBIO: Institución corregida y año más específico
+  { name: 'Inglés B1-B2', institution: 'Instituto Cambridge (Argentina)', year: 'Quinto año — Mención MUY BUENO' },
   { name: 'Python', institution: 'CoderHouse', year: 'Curso completado' },
   { name: 'Frontend Developer', institution: 'CoderHouse', year: 'Curso completado' },
   // TODO: agregar más cuando termine la carrera
@@ -59,10 +60,11 @@ export const manifesto = [
     title: 'Flexibilidad total',
     text: 'Remoto, part-time o full-time. Me adapto a las necesidades del equipo y del proyecto, sin que el horario sea una barrera.',
   },
+  // ⬅️ CAMBIO: Título y texto actualizados para reflejar tu nivel real
   {
     number: '03',
-    title: 'Inglés B2 certificado',
-    text: 'Acredito el nivel B2 de Cambridge. Leo documentación, sigo tutoriales y me comunico con fluidez en entornos técnicos en inglés.',
+    title: 'Inglés B1-B2 — en camino al B2',
+    text: 'Certificado B1-B2 por el Instituto Cambridge (Argentina). Actualmente en preparación para el First Certificate (B2) de Cambridge Assessment English. Leo documentación técnica y me comunico con fluidez en entornos técnicos.',
   },
   {
     number: '04',
@@ -159,36 +161,36 @@ export const projects = [
 // ---------------------------------------------------------
 export const sectors = [
   {
-    id: 'alimentos',
-    label: 'Distribución\nAlimentaria',
-    icon: '🚚',
+    id: 'repuestos',
+    label: 'Repuestos de\nCamiones',
+    icon: '🔧',
     position: { x: 18, y: 22 },
     description:
-      'Distribución nacional de alimentos — conozco los desafíos de la cadena de frío y los plazos ajustados.',
+      'Logística de repuestos para camiones — conozco los desafíos de la disponibilidad inmediata y la gestión de inventario en talleres y rutas.',
   },
   {
-    id: 'carnes',
-    label: 'Carnes y\nPerecibles',
-    icon: '🥩',
+    id: 'flota',
+    label: 'Gestión de\nFlotas',
+    icon: '🚛',
     position: { x: 78, y: 22 },
     description:
-      'Logística de carnes y productos perecederos — sé lo crítico que es el tracking en tiempo real.',
+      'Gestión de flotas y mantenimiento — sé lo crítico que es coordinar talleres, turnos y evitar tiempos muertos en la ruta.',
   },
   {
-    id: 'cargas',
-    label: 'Cargas\nGenerales',
+    id: 'stock',
+    label: 'Stock y\nAlmacenes',
     icon: '📦',
     position: { x: 18, y: 72 },
     description:
-      'Transporte de cargas generales y retail — he visto cómo la falta de integración entre sistemas genera pérdidas.',
+      'Manejo de stock y almacenes — he visto cómo la falta de integración entre sistemas genera pérdidas y retrasos en los envíos.',
   },
   {
-    id: 'farmaceutica',
-    label: 'Logística\nFarmacéutica',
-    icon: '💊',
+    id: 'distribucion',
+    label: 'Distribución\nRegional',
+    icon: '🗺️',
     position: { x: 78, y: 72 },
     description:
-      'Logística farmacéutica — tengo presente que hay productos que requieren trazabilidad absoluta y condiciones especiales.',
+      'Distribución regional y logística de última milla — conozco los plazos ajustados y la necesidad de rutas optimizadas.',
   },
 ];
 
@@ -201,4 +203,5 @@ export const CENTER = { x: 48, y: 47 };
 //  - Agregar más proyectos cuando termine la carrera
 //  - Revisar si el nivel de JavaScript ya llegó a 50% jaja
 //  - El mapa de ADN Logístico podría tener más nodos en el futuro
+//  - Cuando rinda el First Certificate (B2), actualizo el nivel de inglés
 // ---------------------------------------------------------

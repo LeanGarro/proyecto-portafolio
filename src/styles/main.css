@@ -236,6 +236,8 @@ a { text-decoration: none; }
 }
 .scroll-down:hover { color: var(--amber); }
 
+
+
 /* ---------- Botones ---------- */
 .btn-amber {
   background: var(--amber);
@@ -326,6 +328,37 @@ a { text-decoration: none; }
 .info-icon { font-size: 0.9rem; color: var(--amber); margin-top: 1px; }
 .info-label { font-size: 0.75rem; color: var(--text-dim); margin: 0; }
 .info-value { font-size: 0.875rem; color: var(--text-light); margin: 0; }
+
+/*==================*/
+/*  Foto de perfil  */
+/*==================*/
+.profile-photo-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--amber);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.25);
+}
+
+/* En mobile que sea más chica */
+@media (max-width: 576px) {
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
 
 /* ---------- Card boxes ---------- */
 .card-box {
